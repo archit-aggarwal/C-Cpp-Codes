@@ -1,4 +1,4 @@
-//Searching an element in an rotated sorted array
+//Searching an element in a rotated sorted array
 #include<iostream>
 using namespace std;
 int binarysearch(int A[],int start,int end,int key)
