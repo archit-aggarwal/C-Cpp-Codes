@@ -45,14 +45,35 @@ int ceil_sqroot(int n)
 	}
 	return l; // for ceil value
 }
+double sqroot(int n, int precision)
+{
+	double ans = floor_sqroot(n);
+	int i = 0; double j = 0.1;
+	while (precision--)
+	{
+		while (ans * ans <= n)  ans += j;
+		ans = ans - j;
+		j = j / 10;
+	}
+	return ans;
+}
 int main()
 {
 	file_input_output();
-	cout << floor_sqroot(64) << " " << ceil_sqroot(64) << endl;
-	cout << floor_sqroot(65) << " " << ceil_sqroot(65) << endl;
-	cout << floor_sqroot(63) << " " << ceil_sqroot(63) << endl;
-	cout << floor_sqroot(16) << " " << ceil_sqroot(16) << endl;
-	cout << floor_sqroot(17) << " " << ceil_sqroot(17) << endl;
-	cout << floor_sqroot(15) << " " << ceil_sqroot(15) << endl;
+	cout << floor_sqroot(64) << " " << ceil_sqroot(64) << " ";
+	cout << sqroot(64, 3) << endl;
+	cout << floor_sqroot(65) << " " << ceil_sqroot(65) << " ";
+	cout << sqroot(65, 3) << endl;
+	cout << floor_sqroot(63) << " " << ceil_sqroot(63) << " ";
+	cout << sqroot(63, 3) << endl;
+	cout << floor_sqroot(16) << " " << ceil_sqroot(16) << " ";
+	cout << sqroot(16, 3) << endl;
+	cout << floor_sqroot(17) << " " << ceil_sqroot(17) << " ";
+	cout << sqroot(17, 3) << endl;
+	cout << floor_sqroot(15) << " " << ceil_sqroot(15) << " ";
+	cout << sqroot(15, 3) << endl;
+	// Time Complexity Analysis
+	// Ceil & Floor - O(log n)
+	// square root upto given precision p - O(log n + p)
 	return 0;
 }
