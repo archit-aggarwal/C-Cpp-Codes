@@ -19,8 +19,8 @@ int find(int i,vector<int> djset)
      x = djset[x];
     return x; 
 }
-// Here graph is represented in adjacency matrix (V X V) 
 int spanningTree(int V, int E,vector<vector<int>> &graph) {
+    // Here graph is represented in adjacency matrix (V X V) 
     vector<int> djset(V,-1);
     int ans = 0;
     priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>> q;
