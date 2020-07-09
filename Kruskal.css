@@ -1,0 +1,50 @@
+void Union(int u,int v,vector<int> djset)
+{
+    if(djset[v] < djset[u])
+    {
+        djset[v] += djset[u];
+        djset[u] = v; 
+    }
+    else 
+    {
+        djset[u] += djset[v];
+        djset[v] = u;
+    }
+    return;
+}
+int find(int i,vector<int> djset)
+{
+    int x = i;
+    while(djset[x] >= 0)
+     x = djset[x];
+    return x; 
+}
+// Here graph is represented in adjacency matrix (V X V) 
+int spanningTree(int V, int E,vector<vector<int>> &graph) {
+    vector<int> djset(V,-1);
+    int ans = 0;
+    priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>> q;
+    for(int i=0;i<V;i++)
+    {
+        for(int j=i+1;j<V;j++)
+         {
+             if(graph[i][j] < INT_MAX)
+             q.push(make_pair(graph[i][j],make_pair(i,j)));
+         }
+    }
+    int count = V-1;
+    while(count)
+    {
+        int x = find(q.top().second.first,djset);
+        int y = find(q.top().second.second,djset);
+        int weight = q.top().first;
+        if(x != y)
+        {
+            ans += weight;
+            Union(x,y,djset);
+            count--;
+        }
+        q.pop();
+    }
+    return ans;
+}
