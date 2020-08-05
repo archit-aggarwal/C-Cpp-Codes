@@ -36,7 +36,6 @@ bool solve(int i, int j, int k, pair<int, int> move[])
 		}
 
 	}
-	board[i][j] = -1;
 	return false;
 }
 int main()
