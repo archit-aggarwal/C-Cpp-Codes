@@ -12,6 +12,26 @@ void file_input_output()
 #endif
 }
 
+// Convex Hull: Given a set of points in the plane, 
+// Convex Hull is a smallest convex polygon with minimum area and minimum perimeter 
+// such that each point lies either on the boundary of polygon or inside it.
+
+// // Graham Scan Algorithm
+// 1. Sort all the points using the below comparison:
+// 	i) xi < xj
+// 	ii) if(xi == yi) yi < yj
+// 2. This will make p[0] as bottom-left most point and p[n-1] as top-right most point
+// 3. Orientation of Point (Clockwise, Anticlockwise and Collinear):
+//    https://github.com/archit-aggarwal/C-Cpp-Codes/blob/master/Point%20Orientation.jpeg
+// 4. Now Divide all points in upper half and lower half of the area divided by line joining p[0] and p[n-1] points.
+// 5. For points in upper half, no point should make a counter clockwise turn with its previous point, in order to be
+//    included in the convex hull. 
+// 6. Similarly, for points in lower half, no point in convex hull should make a clockwise turn with previous point.
+// 7. Points p[0], p[n-1] and all collinear points on this line will come in both upper half and lower half, 
+//    hence need to be removed once from the final result.
+// 8. Final Result will be (Points in Upper Half) Union (Points in Lower Half) satisfying the condition in (5) & (6).
+
+
 struct point {
 	int x, y;
 
