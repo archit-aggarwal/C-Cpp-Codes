@@ -49,7 +49,7 @@ void convex_hull(vector<point> &p)
 
 	vector<point> upper, lower;
 	upper.push_back(p1);
-	lower.push_back(p2);
+	lower.push_back(p1);
 
 	// Divide p[i] in Upper Half or Lower Half
 	for (int i = 1; i < n; i++)
