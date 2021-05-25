@@ -46,7 +46,7 @@ public:
             else if(str[i] == '-')
             {
                 if(s.back() == '(')
-                    continue;
+                    s = s + "0-";
                 else if(s.back() == '+')
                     s[s.size() - 1] = '-';
                 else if(s.back() == '-')
