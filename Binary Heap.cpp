@@ -55,10 +55,10 @@ class PriorityQueue
         if(data.size() == 0) return -1;
         
         int top = data.front();
-        swap(data[0], data[data.size()-1];
+        swap(data[0], data[data.size()-1]);
         data.pop_back();
              
-        downheapify(0, n); 
+        downheapify(0, data.size()); 
         // Downheapify at 0th index is O(log N) operation where N is number of elements in heap.
         return top;
     }
