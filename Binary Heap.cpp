@@ -90,10 +90,16 @@ class PriorityQueue
             downheapify(0, data.size()-i-1);
         }
         
+        // Note: Before Calling Heapsort, heap should be heapified already(either using create or push for n elements) should have been called.
+        // We cannot call heapsort directly, as otherwise, top element will not be highest priority element.
+        
         // All elements which will be popped (highest priority) will keep on adding on last of array.
         // Finally, data array will be sorted in reverse order of priority.
         // Heap Sort: 
         //  -> Time Complexity: O(NlogN) in best, average & worst case.
         //  -> Space Complexity: Inplace - O(1) Extra Space.
+        //  -> It is Not Stable by default. (Equal keys can be popped out in any order). 
+        //     However, we can modify it to make it stable, by storing the index while element was inserted for all elements, and compare this index for equal elements.
+        //     This will take O(N) extra space as we will have to store (insertion order) index of all elements along with their value.
     }
 };
