@@ -4,6 +4,7 @@
 
 class PriorityQueue
 {
+    public:
     vector<int> data;
     
     int size()
