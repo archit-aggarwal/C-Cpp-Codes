@@ -43,7 +43,7 @@ class PriorityQueue
             data.push_back(e);
         
         for(int i = data.size()/2 - 1; i >= 0; i--)
-            downheapify(i, n);
+            downheapify(i, data.size());
         
         // If we are given all elements to be pushed into stack, we call start building heap from bottom
         // by using downheapify. It will take O(N - logN) = O(N) time for inserting N elements.
