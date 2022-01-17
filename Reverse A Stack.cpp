@@ -33,6 +33,19 @@ int main() {
     stack<int> stk;
     for(int i=0; i<10; i++) stk.push(i);
     
+    // Method 1 : Using Another Stack 
+    // O(N) Time Complexity, O(N) Extra Space
+    
+    stack<int> inv;
+    while(!stk.empty())
+    {
+        inv.push(stk.top());
+        stk.pop();
+    }
+    
+    // Copies the content from Inv stack back into originial stack - O(N) Time 
+    stk = inv; 
+    
     // Method 2: Using Recursion
     // Time Complexity : O(N ^ 2) : For each element we are calling Insert (At Bottom), thus O(Size) X O(Insert) = O(N) X O(N) = O(N^2)
     // Extra Space: We are using Recursion/Function Call Stack which will take O(N) Space if considered.
@@ -43,5 +56,5 @@ int main() {
         cout << stk.top() << " ";
         stk.pop();
     }
-	return 0;
+    return 0;
 }
